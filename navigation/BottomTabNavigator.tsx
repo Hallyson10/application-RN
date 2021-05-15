@@ -25,14 +25,7 @@ export default function BottomTabNavigator() {
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
-        }}
-      />
-      <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        component={TabTwoScreen}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
@@ -57,22 +50,10 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+        options={{ headerTitle: 'Recruitment',headerShown:false }}
       />
     </TabOneStack.Navigator>
   );
 }
 
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
-
-function TabTwoNavigator() {
-  return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
-      />
-    </TabTwoStack.Navigator>
-  );
-}
